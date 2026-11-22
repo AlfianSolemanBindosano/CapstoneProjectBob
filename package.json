@@ -1,0 +1,9 @@
+{
+  "name": "test-case-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test Case Generator — IT Track QA Automation (vanilla JS, no dependencies)",
+  "scripts": {
+      "test": "node --test test/smoke.test.js"
+  }
+}

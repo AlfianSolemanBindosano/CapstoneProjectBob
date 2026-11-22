@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Case Generator — IT Track QA</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="brand-icon">🧪</span>
+        <div>
+          <h1>Test Case Generator</h1>
+          <p>IT Track — QA Automation Module</p>
+        </div>
+      </div>
+      <span class="badge">v1.0.0</span>
+    </div>
+  </header>
+
+  <main class="app-main">
+
+    <!-- ── INPUT PANEL ── -->
+    <section class="panel panel-input">
+      <h2 class="panel-title">📋 User Story Input</h2>
+
+      <div class="form-group">
+        <label for="moduleInput">Module / Feature Name</label>
+        <input id="moduleInput" type="text" placeholder="e.g. Authentication, User Registration, Checkout" />
+      </div>
+
+      <div class="form-group">
+        <label for="storyInput">User Story</label>
+        <textarea id="storyInput" rows="4"
+          placeholder="As a [role], I want to [action] so that [benefit].&#10;&#10;e.g. As a registered user, I want to log in using my email and password so that I can access my personalized dashboard."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="fieldsInput">Input Fields (comma-separated)</label>
+        <input id="fieldsInput" type="text" placeholder="e.g. Email, Password, Remember Me" />
+      </div>
+
+      <div class="form-group">
+        <label for="endpointInput">Endpoint / Page URL</label>
+        <input id="endpointInput" type="text" placeholder="e.g. /login, /register, /checkout" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="minPassInput">Password Min Length</label>
+          <input id="minPassInput" type="number" value="8" min="1" />
+        </div>
+        <div class="form-group half">
+          <label for="maxPassInput">Password Max Length</label>
+          <input id="maxPassInput" type="number" value="64" min="1" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="maxAttemptsInput">Max Login Attempts Before Lockout</label>
+        <input id="maxAttemptsInput" type="number" value="5" min="1" />
+      </div>
+
+      <div class="form-actions">
+        <button id="generateBtn" class="btn btn-primary">⚡ Generate Test Cases</button>
+        <button id="clearBtn" class="btn btn-ghost">✕ Clear</button>
+      </div>
+    </section>
+
+    <!-- ── OUTPUT PANEL ── -->
+    <section class="panel panel-output" id="outputPanel" style="display:none;">
+
+      <div class="output-header">
+        <h2 class="panel-title">📊 Generated Test Cases</h2>
+        <div class="output-actions">
+          <button id="copyMdBtn" class="btn btn-sm btn-outline">📋 Copy Markdown</button>
+          <button id="downloadBtn" class="btn btn-sm btn-outline">⬇ Download .md</button>
+        </div>
+      </div>
+
+      <div class="summary-bar" id="summaryBar"></div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="table">Test Case Table</button>
+        <button class="tab" data-tab="gherkin">BDD Gherkin</button>
+        <button class="tab" data-tab="markdown">Raw Markdown</button>
+      </div>
+
+      <div class="tab-content" id="tabTable">
+        <div class="table-wrapper" id="tableOutput"></div>
+      </div>
+
+      <div class="tab-content hidden" id="tabGherkin">
+        <pre class="code-block" id="gherkinOutput"></pre>
+      </div>
+
+      <div class="tab-content hidden" id="tabMarkdown">
+        <pre class="code-block" id="markdownOutput"></pre>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Test Case Generator &mdash; IT Track QA Automation &bull; Built with Vanilla JS</p>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="src/app.js"></script>
+</body>
+</html>
